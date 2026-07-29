@@ -5,17 +5,16 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-User=sojufx
-WorkingDirectory=/home/sojufx
-EnvironmentFile=/home/sojufx/laguna.env
-ExecStart=/home/sojufx/bin/start-laguna.sh
+User=CHANGE_ME
+WorkingDirectory=/home/CHANGE_ME
+EnvironmentFile=/home/CHANGE_ME/laguna.env
+ExecStart=/home/CHANGE_ME/bin/start-laguna.sh
 Restart=always
 RestartSec=10
 KillMode=mixed
 TimeoutStopSec=60
-StandardOutput=append:/home/sojufx/vllm-laguna.log
-StandardError=append:/home/sojufx/vllm-laguna.log
+StandardOutput=append:/home/CHANGE_ME/vllm-laguna.log
+StandardError=append:/home/CHANGE_ME/vllm-laguna.log
 
 [Install]
 WantedBy=multi-user.target
-

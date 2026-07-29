@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PYTHON_BIN="${PYTHON_BIN:-/home/sojufx/vllm-026/bin/python}"
+PYTHON_BIN="${PYTHON_BIN:-$HOME/vllm-026/bin/python}"
 MODEL="${VLLM_MODEL:-/opt/huggingface/models/Laguna-S-2.1-NVFP4-latest}"
 DRAFT_MODEL="${VLLM_DRAFT_MODEL:-/opt/huggingface/models/Laguna-S-2.1-DFlash-NVFP4}"
 HOST="${VLLM_HOST:-0.0.0.0}"
@@ -35,4 +35,3 @@ exec "$PYTHON_BIN" -m vllm.entrypoints.openai.api_server \
   --gpu-memory-utilization 0.68 \
   --kv-cache-dtype fp8 \
   --api-key "${VLLM_API_KEY:?Set VLLM_API_KEY}"
-
