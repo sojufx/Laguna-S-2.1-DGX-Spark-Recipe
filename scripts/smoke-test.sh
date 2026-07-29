@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BASE_URL="${BASE_URL:-http://127.0.0.1:8000/v1}"
+MODEL="${SERVED_MODEL_NAME:-ornith}"
+
+curl -sS \
+  -H "Authorization: Bearer ${VLLM_API_KEY:?Set VLLM_API_KEY}" \
+  "${BASE_URL}/models"
+
+printf "\n"
+
+curl -sS \
+  -H "Authorization: Bearer ${VLLM_API_KEY}" \
+  -H "Content-Type: application/json" \
+  "${BASE_URL}/chat/completions" \
+  -d "{\"model\":\"${MODEL}\",\"messages\":[{\"role\":\"user\",\"content\":\"Reply with: OK\"}],\"max_tokens\":16,\"temperature\":0}"
+
+printf "\n"
+

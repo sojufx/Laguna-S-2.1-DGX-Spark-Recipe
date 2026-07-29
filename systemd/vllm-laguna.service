@@ -1,0 +1,21 @@
+[Unit]
+Description=vLLM Laguna S 2.1 Production Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sojufx
+WorkingDirectory=/home/sojufx
+EnvironmentFile=/home/sojufx/laguna.env
+ExecStart=/home/sojufx/bin/start-laguna.sh
+Restart=always
+RestartSec=10
+KillMode=mixed
+TimeoutStopSec=60
+StandardOutput=append:/home/sojufx/vllm-laguna.log
+StandardError=append:/home/sojufx/vllm-laguna.log
+
+[Install]
+WantedBy=multi-user.target
+
