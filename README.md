@@ -4,6 +4,10 @@ A practical, crash-aware vLLM recipe for running `poolside/Laguna-S-2.1-NVFP4` o
 
 This is not a leaderboard-only configuration. It is the setup I use as a daily-driver production endpoint: long context, stable memory behavior, DFlash speculative decoding, prefix caching, and repeatable OpenAI-compatible benchmarks.
 
+> Long context. Stable memory. Real endpoint.
+
+![Laguna S 2.1 NVFP4 DGX Spark benchmark](assets/laguna-spark-benchmark-card.png)
+
 ## What this repo gives you
 
 - 250k context profile for Laguna S 2.1 on one Spark
